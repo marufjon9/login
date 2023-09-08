@@ -1,0 +1,196 @@
+.home {
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+}
+.left {
+  display: none;
+  height: 100vh;
+  background-image: url("/img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.right {
+  height: 100vh;
+  width: 100vw;
+}
+.textbox {
+  margin-top: 30px;
+  text-align: center;
+}
+.logo-img {
+}
+.logo-icon {
+  margin: 0 auto;
+  max-width: 60%;
+}
+.title {
+  margin-top: 5px;
+}
+.home-form {
+  margin-top: 25px;
+}
+.form {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  // max-width: 300px;
+  // width: 100%;
+}
+.form-input {
+  outline: none;
+  padding: 6px 15px;
+  min-height: 33px;
+  min-width: 200px;
+  // max-width: 300px;
+  // width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.208);
+  &::placeholder {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.508);
+  }
+}
+.name {
+}
+.password {
+}
+.form-sign {
+  min-height: 35px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #000;
+  color: #eee;
+  transition: 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .textbox {
+    margin-top: 50px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .form {
+    gap: 15px;
+  }
+  .form-sign {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .home {
+  }
+  .left {
+    display: block;
+  }
+  .right {
+    width: 70vw;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .logo-icon {
+    max-width: 20%;
+  }
+  .form {
+    max-width: 300px;
+    width: 100%;
+  }
+  .form-input {
+    padding: 10px 25px;
+    max-width: 300px;
+    width: 100%;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
+.page {
+  background-color: #000;
+  height: 100vh;
+  background-image: url("/img/famliy-guy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.users {
+  // margin-left: auto;
+  padding: 30px 0;
+}
+.users-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.user-item {
+  background-color: rgba(239, 241, 247, 0.322);
+  border: 1px solid transparent;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px;
+}
+.user-img {
+  border-radius: 50%;
+  max-width: 50%;
+  margin: 20px auto 20px;
+}
+.user-textbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+.user-name {
+}
+.user-lastName {
+}
+.user-email {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 400px) {
+  .users-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .user-item {
+    padding: 20px;
+  }
+  .user-img {
+    border-radius: 50%;
+    max-width: 60%;
+    margin: 10px auto 10px;
+  }
+
+  .user-email {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .users {
+    margin-left: auto;
+    margin-right: 100px;
+  }
+  .user-item {
+    transition: all 0.4s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
