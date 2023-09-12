@@ -1,4 +1,17 @@
+const token = JSON.parse(window.localStorage.getItem("token"));
+
+if (!token) {
+  window.location.pathname = "login.html";
+}
+
 const usersList = document.querySelector(".users-list");
+const pageTitle = document.querySelector(".page-title");
+const logOut = document.querySelector(".page__logout");
+
+logOut.addEventListener("click", function () {
+  window.location.pathname = "login.html";
+  window.localStorage.clear();
+});
 
 const fragment = document.createDocumentFragment();
 
@@ -31,8 +44,9 @@ function renderUser(array) {
     userItem.append(userImg, userTextbox);
     fragment.append(userItem);
 
-    usersList.append(fragment);
+    // pageTitle.textContent = element.name;
   });
+  usersList.append(fragment);
 }
 
 async function getUsers(url) {

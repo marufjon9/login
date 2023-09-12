@@ -1,31 +1,46 @@
-const firstName = document.querySelector(".name");
+const token = JSON.parse(window.localStorage.getItem("token"));
+
+if (token) {
+  window.location.pathname = "index.html";
+}
+
+const email = document.querySelector(".name");
 const password = document.querySelector(".password");
 const form = document.querySelector(".form");
 const nameSpan = document.querySelector(".name-span");
-const passSpan = document.querySelector(".password-span");
 
-const nameValue = firstName.value.trim();
-const passwordValue = password.value.trim();
-
-async function credential(url) {
+async function loginUSer(url, email, password) {
   try {
     const response = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
-        email: nameValue,
-        password: "",
+        email: email,
+        password: password,
       }),
     });
-    window.location.href = "/index.html";
+
+    const data = await response.json();
+    console.log(data);
+    if (data.token) {
+      window.localStorage.setItem("token", JSON.stringify(data));
+      window.location.pathname = "index.html";
+    } else if (data.error) {
+      nameSpan.textContent = data.error;
+    }
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const login = "https://reqres.in/api/login";
-  credential(login);
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+
+  loginUSer("https://reqres.in/api/login", emailValue, passwordValue);
 });
